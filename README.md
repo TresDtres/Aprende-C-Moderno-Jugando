@@ -3,8 +3,8 @@ Aprende C++ Moderno Jugando: Un curso interactivo donde programas para sobrevivi
 # 🚀 C++ Space Colony: Aprende C++ Moderno Jugando
 **Un curso interactivo donde programas para sobrevivir en una colonia espacial.**
 
-[![GitHub stars](https://img.shields.io/github/stars/tu-usuario/cpp-space-colony.svg?style=social)](https://github.com/tu-usuario/cpp-space-colony/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/tu-usuario/cpp-space-colony.svg?style=social)](https://github.com/tu-usuario/cpp-space-colony/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/TresDtres/Aprende-C-Moderno-Jugando.svg?style=social)](https://github.com/TresDtres/Aprende-C-Moderno-Jugando/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/TresDtres/Aprende-C-Moderno-Jugando.svg?style=social)](https://github.com/TresDtres/Aprende-C-Moderno-Jugando/network/members)
 [![Discord](https://img.shields.io/discord/1234567890.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/MnuQKPXk7n)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
