@@ -1,3 +1,4 @@
+//notas para el estudiante
 #include <iostream>
 #include <unistd.h> // Para sleep(). En Windows, usa #include <windows.h>.
 
