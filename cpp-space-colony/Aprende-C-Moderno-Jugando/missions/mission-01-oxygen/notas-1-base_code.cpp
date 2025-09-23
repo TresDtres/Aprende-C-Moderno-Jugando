@@ -1,3 +1,4 @@
+// notas para estudio
 #include <iostream>
 // #include <windows.h> // Descomenta esta línea si estás en Windows.
 
