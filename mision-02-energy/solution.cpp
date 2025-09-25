@@ -1,28 +1,35 @@
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 #include <iomanip>
 
-// ✅ FUNCIÓN: Protocolo de cálculo de energía solar
-// Recibe ángulo en grados y eficiencia (0.0 a 1.0)
-// Retorna energía en vatios (W)
+constexpr float PI = 3.14159265358979323846f;
+constexpr float INTENSIDAD_SOLAR_DEFAULT = 1361.0f;
+constexpr float AREA_PANEL_DEFAULT = 10.0f;
+
 float calcularEnergiaSolar(float anguloGrados, float eficiencia) {
-    // Convertimos grados a radianes (std::cos espera radianes)
-    float anguloRadianes = anguloGrados * static_cast<float>(M_PI) / 180.0f;
-    
-    // Fórmula física simplificada:
-    // Energía = Intensidad solar * cos(ángulo) * eficiencia * área
-    const float INTENSIDAD_SOLAR = 1361.0f; // W/m²
-    const float AREA_PANEL = 10.0f;         // m²
-
-    float energia = INTENSIDAD_SOLAR * std::cos(anguloRadianes) * eficiencia * AREA_PANEL;
-
-    // Evitamos energía negativa (si ángulo > 90°, cos es negativo)
-    if (energia < 0.0f) {
-        energia = 0.0f;
+    if (eficiencia < 0.0f || eficiencia > 1.0f) {
+        std::cerr << "⚠️ Advertencia: Eficiencia fuera de rango [0.0, 1.0]. Ajustando automáticamente.\n";
+        eficiencia = std::clamp(eficiencia, 0.0f, 1.0f);
     }
 
-    return energia;
+    // Normalizar ángulo a [0, 360)
+    anguloGrados = std::fmod(anguloGrados, 360.0f);
+    if (anguloGrados < 0) anguloGrados += 360.0f;
+
+    // Convertir a radianes
+    float anguloRadianes = anguloGrados * (PI / 180.0f);
+    float coseno = std::cos(anguloRadianes);
+
+    // Si el coseno no es positivo, no hay energía solar directa
+    if (coseno <= 0.0f) {
+        return 0.0f;
+    }
+
+    return INTENSIDAD_SOLAR_DEFAULT * coseno * eficiencia * AREA_PANEL_DEFAULT;
 }
+
+// ... resto del main() igual
 
 int main() {
     float energiaTotal = 0.0f;
