@@ -44,46 +44,81 @@
 
 ---
 
-## 💻 CÓDIGO BASE — `mission-02.cpp`
+## 💻 CÓDIGO BASE — `mission-02.cpp` Cambiado y notas
 
-```cpp
-#include <iostream>
-#include <cmath>    // Para std::cos y M_PI
-#include <iomanip>  // Para setprecision
+🔧 Sugerencias menores (opcionales, pero recomendadas):
+1. Evitar redundancia lógica
+Actualmente, tienes dos verificaciones que hacen algo similar:
 
-// TODO: Declara aquí tu función calcularEnergiaSolar
-// Debe recibir: ángulo (en grados), eficiencia (0.0 a 1.0)
-// Debe retornar: energía recolectada (float)
+cpp
+if (anguloGrados > 90.0f && anguloGrados < 270.0f) { return 0.0f; }
+// ...
+if (coseno <= 0.0f) { return 0.0f; }
+Esto no es un error, pero es ligeramente redundante: si el ángulo está en (90, 270), el coseno ya será ≤ 0.
 
-int main() {
-    const float INTENSIDAD_SOLAR = 1361.0f; // W/m² (constante solar)
-    const float AREA_PANEL = 10.0f;         // m²
-    float energiaTotal = 0.0f;
+✅ Recomendación: eliminar la primera condición y confiar en el cálculo del coseno.
+Esto simplifica la lógica y evita duplicar la regla física.
 
-    std::cout << "🌞 SIMULACIÓN DE ENERGÍA SOLAR — COLONIA ESPACIAL\n";
-    std::cout << "Los paneles están dañados. Calcula la energía recolectada por día.\n\n";
+cpp
+// Elimina este bloque:
+// if (anguloGrados > 90.0f && anguloGrados < 270.0f) {
+//     return 0.0f;
+// }
+¿Por qué?
+El coseno ya captura exactamente cuándo no hay luz directa.
+Además, si en el futuro usamos ángulos con precisión decimal (ej. 89.999°), la lógica sigue siendo correcta. 
 
-    // Simulamos 5 días con distintos ángulos y eficiencias
-    float angulos[] = {0.0f, 30.0f, 60.0f, 75.0f, 90.0f}; // Ángulos respecto al sol
-    float eficiencias[] = {0.9f, 0.7f, 0.5f, 0.3f, 0.1f};  // Eficiencia degradada
+2. Comentario sobre std::clamp y compatibilidad
+Dado que algunos entornos (especialmente antiguos o con C++14) no tienen std::clamp, podrías dejar un comentario de respaldo:
 
-    for (int dia = 0; dia < 5; ++dia) {
-        // TODO: Llama a tu función calcularEnergiaSolar aquí
-        float energiaDia = 0.0f; // ← reemplaza esto
+cpp
+// eficiencia = std::max(0.0f, std::min(1.0f, eficiencia)); // Alternativa C++11/14
+Pero como el curso apunta a C++17+, está bien dejar std::clamp como principal.
 
-        energiaTotal += energiaDia;
-        std::cout << "📅 Día " << (dia + 1) 
-                  << " — Ángulo: " << angulos[dia] << "°, Eficiencia: " << eficiencias[dia] * 100 << "%\n"
-                  << "⚡ Energía recolectada: " << std::fixed << std::setprecision(2) << energiaDia << " W\n\n";
-    }
+3. Constantes en mayúsculas → bien, pero considera static constexpr si se usan solo en este archivo
+No es necesario, pero si el archivo crece, podrías encapsularlas:
 
-    std::cout << "🔋 ENERGÍA TOTAL EN 5 DÍAS: " << std::fixed << std::setprecision(2) << energiaTotal << " W\n";
-
-    if (energiaTotal < 5000.0f) {
-        std::cout << "⚠️  ¡ALERTA! Energía insuficiente. Los sistemas críticos podrían fallar.\n";
-    } else {
-        std::cout << "✅ ¡Energía suficiente! La colonia sobrevivirá al menos una semana.\n";
-    }
-
-    return 0;
+cpp
+namespace {
+    constexpr float PI = 3.14159265358979323846f;
+    constexpr float INTENSIDAD_SOLAR_DEFAULT = 1361.0f;
+    constexpr float AREA_PANEL_DEFAULT = 10.0f;
 }
+→ Esto evita conflictos de nombres si se incluye en otros archivos.
+Pero para Mission-02, no es necesario. Lo dejas como está.
+
+✅ Versión final recomendada (con ajuste de redundancia):
+cpp
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <iomanip>
+
+constexpr float PI = 3.14159265358979323846f;
+constexpr float INTENSIDAD_SOLAR_DEFAULT = 1361.0f;
+constexpr float AREA_PANEL_DEFAULT = 10.0f;
+
+float calcularEnergiaSolar(float anguloGrados, float eficiencia) {
+    if (eficiencia < 0.0f || eficiencia > 1.0f) {
+        std::cerr << "⚠️ Advertencia: Eficiencia fuera de rango [0.0, 1.0]. Ajustando automáticamente.\n";
+        eficiencia = std::clamp(eficiencia, 0.0f, 1.0f);
+    }
+
+    // Normalizar ángulo a [0, 360)
+    anguloGrados = std::fmod(anguloGrados, 360.0f);
+    if (anguloGrados < 0) anguloGrados += 360.0f;
+
+    // Convertir a radianes
+    float anguloRadianes = anguloGrados * (PI / 180.0f);
+    float coseno = std::cos(anguloRadianes);
+
+    // Si el coseno no es positivo, no hay energía solar directa
+    if (coseno <= 0.0f) {
+        return 0.0f;
+    }
+
+    return INTENSIDAD_SOLAR_DEFAULT * coseno * eficiencia * AREA_PANEL_DEFAULT;
+}
+
+// ... resto del main() igual
+
