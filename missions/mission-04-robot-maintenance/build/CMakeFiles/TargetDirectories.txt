@@ -1,0 +1,3 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-04-robot-maintenance/build/CMakeFiles/robot_maintenance.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-04-robot-maintenance/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-04-robot-maintenance/build/CMakeFiles/rebuild_cache.dir

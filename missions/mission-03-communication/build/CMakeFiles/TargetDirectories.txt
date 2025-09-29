@@ -1,0 +1,3 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-03-communication/build/CMakeFiles/communication.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-03-communication/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-03-communication/build/CMakeFiles/rebuild_cache.dir

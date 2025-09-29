@@ -74,6 +74,12 @@ cd build
 4. Reflect with `reflection.md`
 5. Try `bonus.cpp` for extra challenges
 
+### 5. Share Your Progress
+Upload your completed missions to GitHub:
+```bash
+./push_to_github.sh "Completed Mission X - [Your Name]"
+```
+
 ---
 
 ## 📂 Course Structure

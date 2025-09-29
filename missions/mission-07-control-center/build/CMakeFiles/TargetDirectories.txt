@@ -1,0 +1,3 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-07-control-center/build/CMakeFiles/control_center.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-07-control-center/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-07-control-center/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/robot_maintenance.dir/solution.cpp.o -o robot_maintenance 

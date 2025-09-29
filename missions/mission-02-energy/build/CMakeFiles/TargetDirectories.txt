@@ -1,0 +1,4 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-02-energy/build/CMakeFiles/energy_solution.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-02-energy/build/CMakeFiles/energy_base.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-02-energy/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-02-energy/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/inventory_survival.dir/solution.cpp.o -o inventory_survival 

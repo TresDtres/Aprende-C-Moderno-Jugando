@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/control_center.dir/solution.cpp.o CMakeFiles/control_center.dir/LanguageManager.cpp.o -o control_center 

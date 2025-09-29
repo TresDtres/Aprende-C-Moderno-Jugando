@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/meteorite_alarm.dir/solution.cpp.o -o meteorite_alarm 

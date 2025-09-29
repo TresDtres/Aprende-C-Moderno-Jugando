@@ -1,0 +1,3 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-05-inventory-survival/build/CMakeFiles/inventory_survival.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-05-inventory-survival/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-05-inventory-survival/build/CMakeFiles/rebuild_cache.dir

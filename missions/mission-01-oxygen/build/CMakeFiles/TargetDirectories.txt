@@ -1,0 +1,4 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-01-oxygen/build/CMakeFiles/oxygen_solution.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-01-oxygen/build/CMakeFiles/oxygen_base.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-01-oxygen/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-01-oxygen/build/CMakeFiles/rebuild_cache.dir

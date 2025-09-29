@@ -1,0 +1,3 @@
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-06-meteorite-alarm/build/CMakeFiles/meteorite_alarm.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-06-meteorite-alarm/build/CMakeFiles/edit_cache.dir
+/home/tresdtres/Escritorio/space-colony-cpp/missions/mission-06-meteorite-alarm/build/CMakeFiles/rebuild_cache.dir
